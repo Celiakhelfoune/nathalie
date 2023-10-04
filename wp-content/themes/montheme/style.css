@@ -1,0 +1,396 @@
+/*
+the mane: mon theme
+*/
+body {
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  height: 80px;
+}
+
+.logo1 {
+  width: 216px;
+  height: 14px;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: auto;
+}
+.menu ul {
+  display: flex;
+  margin-left: 800px;
+}
+.menu li {
+  list-style-type: none;
+  text-decoration: none;
+}
+.menu li a {
+  display: flex;
+  list-style-type: none;
+  font-family: monospace;
+  font-size: 16px;
+  margin-left: 100px;
+  text-decoration: none;
+  color: black;
+}
+
+.contact-t {
+  font-family: poppins;
+}
+.lien lu {
+  margin-right: 50px;
+}
+
+.imgheader {
+  width: 100%;
+  height: 650px;
+  background-size: cover;
+}
+.photographe {
+  position: relative;
+}
+.contact {
+  display: flex;
+  margin-top: -13px;
+  list-style-type: none;
+  font-family: monospace;
+  font-size: 16px;
+  margin-left: 83%;
+  text-decoration: none;
+  color: black;
+}
+.titreImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 96px;
+  color: transparent;
+  -webkit-text-stroke: 2px #ffff;
+  display: inline-block;
+  text-align: center;
+  line-height: 142px;
+  white-space: nowrap;
+  z-index: 110;
+}
+
+.footer {
+  border-top: 1px solid black;
+  position: relative;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solod #000000;
+}
+.piendPage {
+  display: flex;
+  list-style-type: none;
+  font-family: monospace;
+  font-size: 16px;
+}
+.piendPage a {
+  color: black;
+  text-decoration: none;
+}
+.ft1 {
+  margin-left: 300px;
+}
+.ft3 {
+  margin-right: 300px;
+}
+.nom1 {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 12px;
+  color: #313144;
+  z-index: 10;
+}
+/*la modale*/
+.formulaire {
+  margin: 50px;
+}
+
+.modalDialog {
+  position: fixed;
+  font-family: monospace;
+  top: -80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+.contactLink:target ~ .modalDialog {
+  display: block;
+}
+.modalDialog:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modalDialog > div {
+  width: 400px;
+  position: relative;
+  margin: 8% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255, 0.7);
+}
+.close {
+  background: black;
+  color: #ffffff;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px black;
+}
+.close:hover {
+  background: #e00000;
+}
+.wpcf7-form-control.wpcf7-submit.has-spinner {
+  color: black;
+  background-color: #D8D8D8;
+  border-radius: 2px;
+  font-family: monospace;
+  font-size: 12px;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  margin-left: 38%;
+}
+.wpcf7-form-control {
+  border: 1px solid #b8bbc2;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/*les filtres */
+.listeImg {
+}
+.listes {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  justify-content: space-between;
+  display: flex;
+  padding: 0 10%;
+}
+.format-btn {
+  width: 260px;
+  height: 43px;
+  padding: 11px, 18px, 11px, 18px;
+  border-radius: 8px;
+  border: 1.3px solid #b8bbc2;
+}
+.color1 {
+   font-family: poppins;
+   font-weight: 500;
+   font-size: 12px;
+   background-color: #e00000;
+}
+
+.color2 {
+   font-family: poppins;
+   font-weight: 500;
+   font-size: 12px;
+   background-color: #fe5858;
+}
+.color3 {
+   font-family: poppins;
+   font-weight: 500;
+   font-size: 12px;
+   background-color: #ffd6d6;
+}
+/*menu burger mode responsive*/
+
+
+.burger-menu {
+  display: none;
+}
+
+.burger-menu .line {
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+@media only screen and (max-width: 768px) {
+  header nav {
+    padding: 0 2%;
+  }
+  .logo1 {
+    width: 138px;
+    height: 9px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .burger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .burger-menu.active .line:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+
+  .burger-menu.active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active .line:nth-child(3) {
+    transform: rotate(45deg) translate(-7px, -7px);
+  }
+
+  .menu ul {
+    display: flex;
+    margin-left: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+.menu ul.left-align {
+  left: 0;
+  right: initial;
+}
+  .menu li {
+    margin: 5px 0;
+  }
+
+  .menu li a {
+    margin-left: 0;
+  }
+.photos.row {
+  display: block !important;
+}
+.photos.col {
+  flex-basis: 100%;
+}
+}
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 10%;
+}
+
+.photos .row {
+  display: flex;
+  }
+
+.photos .col {
+  flex-basis: 50%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.photos .col a {
+  display: block;
+  margin-bottom: 10px;
+}
+.btncnt {
+  padding-left: 100px;
+  padding-right: 565px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btncnt p {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0em;
+  color: #000000;
+  
+}
+.contact-button {
+  text-decoration: none;
+  color: #000000;
+  background-color:#D8D8D8;
+  font-family: monospace;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  border-radius: 2px;
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  padding-right: 30px;
+}
+
+h2{
+font-family: Space Mono;
+font-size: 66px;
+font-style: italic;
+font-weight: 400;
+line-height: 58px;
+letter-spacing: 0em;
+}
+h2 p {
+
+  font-family: Space Mono;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+.container {
+  position: relative;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.container::after {
+  content: "";
+  position:absolute;
+  bottom: -1px;
+  left: 0;
+  width: 70%;
+  height: 1px;
+  background-color: #000000;
+  margin-left: 100px;
+}
+.content-container {
+  flex: 4;
+  padding-left: 100px;
+}
+
+.image-container {
+  flex: 1;
+}
+/* bouton voir plus */
+.load-more-button {
+display: flex;
+justify-content: center;
+align-items: center;
+}
