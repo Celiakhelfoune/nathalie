@@ -29,12 +29,12 @@
     </div>
 </section>
 
-<section class="photos">
+<section class="photos" id="photo-section">
     <?php
     
     $args = array(
         'post_type' => 'photo',
-        'posts_per_page' => -1,
+        'posts_per_page' => 8,
         'paged' => isset($_GET['page']) ? $_GET['page'] : 1
       );
     $query = new WP_Query($args);
@@ -52,6 +52,6 @@
     ?>
 </section>
 <div class="load-more-button">
-        <a href="#" class="contact-button">Voir plus</a>
-    </div>
+    <a href="#" class="voirPlusbtn" data-page="1">Voir plus</a>
+</div>
 <?php get_footer(); ?>
