@@ -5,10 +5,11 @@
 
 <div class="piedPage footer">
     <li class="ft1"><a href="http://localhost/nathalie/nathalie/mentions-legales/">MENTIONS LÉGALES</a></li>
-    <li class="ft2"><a href="http://localhost/nathalie/nathalie/vis-privee/">VIE PRIVÉE</a></li>
-    <li class="ft3"><a href="http://localhost/nathalie/nathalie/tous-les-droits-reserves/">TOUS LES DROITS RÉSERVÉS</a></li>
+    <li class="ft2"><a href="http://localhost/nathalie/nathalie/vie-privee/">VIE PRIVÉE</a></li>
+    <li class="ft3">TOUS LES DROITS RÉSERVÉS</li>
 </div>
-<?php wp_footer(); ?>
 </footer>
+
+
 </body>
 </html>

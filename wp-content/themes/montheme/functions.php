@@ -1,8 +1,26 @@
 <?php
-function theme_scripts(){
-    wp_enqueue_script('scripts',get_template_directory_uri().'/js/scripts.js',array(),'1.0',true);
+/* function theme_scripts(){
+    wp_enqueue_script('scripts',get_template_directory_uri().'/js/scripts.js',array('jquery'),'1.0',true);
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/custom-scripts.js', array('jquery'), '1.0', true);
+    wp_localize_script('custom-scripts', 'custom_scripts_vars', array(
+      'ajaxurl' => admin_url('admin-ajax.php')
+  ));
 }
-add_action('wp_enqueue_scripts','theme_scripts');
+
+
+add_action('wp_enqueue_scripts','theme_scripts'); */
+
+add_action( 'wp_enqueue_scripts', 'my_plugin_assets' );
+function my_plugin_assets() {
+  wp_enqueue_script( 'script-name',get_stylesheet_directory_uri() .'/js/scripts.js', array(), '1.0.0');
+  
+  wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/js/custom-scripts.js', array(), '1.0');
+  wp_localize_script('custom-scripts', 'custom_scripts_vars', array(
+    'ajaxurl' => admin_url('admin-ajax.php')
+));
+}
+
+
 // Gestion des menus
 function enregistre_mon_menu() {
         register_nav_menu( 'header', __( 'Menu principal' ) );}
@@ -29,8 +47,9 @@ function theme_enqueue_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
 
-
 add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_load_more_photos', 'load_more_photos');
+
 
 function load_more_photos() {
     $categorie = $_POST['categorie'];
@@ -83,18 +102,19 @@ function load_more_photos() {
         $images = get_attached_media('image', get_the_ID(),'forme1');
         $categories = get_the_terms(get_the_ID(), 'categorie');
         $category_names = wp_list_pluck($categories, 'name');
+        $references = get_post_meta(get_the_ID(), 'reference', true);
         foreach ($images as $image) {
-            echo '<div class="image-link">';
-            echo '<a>'.wp_get_attachment_image($image->ID, 'forme1');
-            echo '<div class="overlay-content">';
-            echo '<img src="' . get_stylesheet_directory_uri() . '/images/PhotosNMota/Icon_fullscreen.png" class="square fullscreen-btn"/>';
-            echo '<a href="' . get_permalink() . '"><span id="icone" class="icone"><i class="fa fa-eye"></i></span></a>';
-            echo '<div class="overlay-infos">';
-            echo '<h5 class="title">' . get_the_title() . '</h5>';
-            echo '<p class="category">' . implode(',', $category_names) . '</p>';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
+          echo '<div class="image-link" data-reference="' . $references . '"data-categorie="' . implode(',', $category_names) . '">';
+          echo '<a>' . wp_get_attachment_image($image->ID, 'forme1');
+          echo '<div class="overlay-content">';
+          echo '<img src="' . get_stylesheet_directory_uri() . '/images/PhotosNMota/Icon_fullscreen.png" class="square fullscreen-btn"/>';
+          echo '<a href="' . get_permalink() . '"><span id="icone" class="icone"><i class="fa fa-eye"></i></span></a>';
+          echo '<div class="overlay-infos">';
+          echo '<h5 class="title">' . get_the_title() . '</h5>';
+          echo '<p class="category">' . implode(',', $category_names) . '</p>';
+          echo '</div>';
+          echo '</div>';
+          echo '</div>';
         }
     }
   }
@@ -103,16 +123,6 @@ function load_more_photos() {
   die();
 }
   
-
-function enqueue_custom_scripts() {
-    wp_enqueue_script('custom-scripts', get_stylesheet_directory_uri() . '/js/custom-scripts.js', array('jquery'), '1.0', true);
-    wp_localize_script('custom-scripts', 'custom_scripts_vars', array(
-        'ajaxurl' => admin_url('admin-ajax.php')
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
-
-
 
 
 // Fonction pour récupérer les termes de taxonomie
@@ -142,6 +152,4 @@ function get_taxonomy_terms() {
   add_action('wp_ajax_get_custom_field_values', 'get_custom_field_values');
   add_action('wp_ajax_nopriv_get_custom_field_values', 'get_custom_field_values');
   
-
-
   
