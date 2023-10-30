@@ -1,10 +1,9 @@
 //menu burger
 jQuery(document).ready(function ($) {
   $(".burger-menu").click(function () {
-    $(this).toggleClass("active");
-    $(".monmenu ul").toggleClass("left-align");
-    $(".monmenu ul").slideToggle();
+    $(".menu").slideToggle();
   });
+
   //affichage automatique des reférences photo
   // Lorsque le bouton "Contact" est cliqué
   $(".contact-button").click(function () {

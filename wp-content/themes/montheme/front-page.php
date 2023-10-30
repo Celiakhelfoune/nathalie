@@ -1,3 +1,4 @@
+<div class="site-container">
 <?php get_header(); ?>
 
 <div>
@@ -31,8 +32,8 @@
 
 
 <!-- Les filtres -->
-<section class="listeImg">
-  <div class="listes">
+<section class="listes">
+  
     <select name="categorie" class="format-btn">
       <option value="" class="default-option">CATÉGORIES</option>
       <?php
@@ -55,8 +56,10 @@
         echo '<option value="' . $format->slug . '">' . $format->name . '</option>';
       }
       ?>
+      
     </select>
-    <select name="tri" class="format-btn">
+    <div class="custom-select">
+    <select id="mySelect" name="tri" class="format-btn">
       <?php $year = get_post_meta('year');
       foreach ($years as $year) {
         echo '<option value="' . $year->slug . '">' . $year->name . '</option>';
@@ -68,8 +71,9 @@
       <option value="2022">2022</option>
       <option value="2023">2023</option>
     </select>
-  </div>
+    </div>
 </section>
+
 <section class="photos" id="photo-section">
   <?php
   $args = array(
@@ -92,7 +96,7 @@
         echo '<img src="' . get_stylesheet_directory_uri() . '/images/PhotosNMota/Icon_fullscreen.png" class="square fullscreen-btn"/>';
         echo '<a href="' . get_permalink() . '"><span id="icone" class="icone"><i class="fa fa-eye"></i></span></a>';
         echo '<div class="overlay-infos">';
-        echo '<h5 class="title">' . get_the_title() . '</h5>';
+        echo '<p class="title">' . get_the_title() . '</p>';
         echo '<p class="category">' . implode(',', $category_names) . '</p>';
         echo '</div>';
         echo '</div>';
@@ -108,3 +112,4 @@
 </div>
 
 <?php get_footer(); ?>
+</div>

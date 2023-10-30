@@ -23,14 +23,10 @@
   <?php wp_body_open(); ?>
   <header>
     <nav class="monmenu">
-
       <img src="<?php echo get_stylesheet_directory_uri() . '/images/Logo1.png' ?>" alt="logo" class="logo1">
-      <?php wp_nav_menu(['theme_location' => 'header']) ?>
       <div class="burger-menu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+        <i class="fa fa-bars"></i>
       </div>
-
+      <?php wp_nav_menu(['theme_location' => 'header']) ?>
     </nav>
   </header>

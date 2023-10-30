@@ -37,12 +37,20 @@ jQuery(document).ready(function ($) {
 
     prevLink.addEventListener("click", function () {
       currentIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
-      openModal(images[currentIndex], references[currentIndex], categories[currentIndex]);
+      openModal(
+        images[currentIndex],
+        references[currentIndex],
+        categories[currentIndex]
+      );
     });
 
     nextLink.addEventListener("click", function () {
       currentIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
-      openModal(images[currentIndex], references[currentIndex], categories[currentIndex]);
+      openModal(
+        images[currentIndex],
+        references[currentIndex],
+        categories[currentIndex]
+      );
     });
 
     modalContent.innerHTML = "";
@@ -102,7 +110,9 @@ jQuery(document).ready(function ($) {
         select.empty();
         select.append('<option value="">Tous</option>');
         $.each(response, function (index, term) {
-          select.append('<option value="' + term.slug + '">' + term.name + "</option>");
+          select.append(
+            '<option value="' + term.slug + '">' + term.name + "</option>"
+          );
         });
       },
     });
@@ -122,7 +132,9 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  $('select[name="categorie"], select[name="format"], select[name="tri"]').change(function () {
+  $(
+    'select[name="categorie"], select[name="format"], select[name="tri"]'
+  ).change(function () {
     loadPhotos();
     currentIndex = 0;
     $(".fullscreen-btn").click(function () {
@@ -188,5 +200,4 @@ jQuery(document).ready(function ($) {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
   }
-
 });
