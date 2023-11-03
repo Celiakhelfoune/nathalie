@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
     $("[name='your-subject']").val(refPhoto);
   });
 
-  //la modale
+  //la modale lightbox
   var currentIndex = 0;
   var images = [];
   var references = [];
