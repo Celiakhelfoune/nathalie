@@ -1,4 +1,5 @@
 jQuery(document).ready(function ($) {
+  // Affichage de la reference et categorie fullscreen
   var currentIndex = 0;
   var images = [];
   var references = [];
@@ -57,13 +58,14 @@ jQuery(document).ready(function ($) {
     modalContent.appendChild(imageContainer);
     modal.style.display = "block";
   }
-
+// ( filtres) chargement des images a partir de la requette ajax et recuperer les valeurs sélectionnées categorie format et tri 
   function loadPhotos() {
+    //recuperer les valeur sélectionnées des filtres 
     var categorie = $('select[name="categorie"]').val();
     var format = $('select[name="format"]').val();
     var tri = $('select[name="tri"]').val();
     var page = 1;
-
+    // Envoie de la requette ajax au serveur pour obtenir les photos 
     $.ajax({
       url: custom_scripts_vars.ajaxurl,
       type: "POST",
@@ -96,7 +98,7 @@ jQuery(document).ready(function ($) {
       },
     });
   }
-
+// Récuperer les les termes des taxonomie 
   function getTaxonomyTerms(taxonomy) {
     $.ajax({
       url: custom_scripts_vars.ajaxurl,
@@ -117,7 +119,7 @@ jQuery(document).ready(function ($) {
       },
     });
   }
-
+// Récupérer les valeurs du champ personnalisé 
   function getCustomFieldValues(customField) {
     $.ajax({
       url: custom_scripts_vars.ajaxurl,
@@ -131,10 +133,10 @@ jQuery(document).ready(function ($) {
       },
     });
   }
-
-  $(
-    'select[name="categorie"], select[name="format"], select[name="tri"]'
+//Changer l'index des images, références et catégorie de la liste déroulante 
+  $('select[name="categorie"], select[name="format"], select[name="tri"]'
   ).change(function () {
+    //Recharger les photos en fonction des nouvelles valeurs sélectionnées
     loadPhotos();
     currentIndex = 0;
     $(".fullscreen-btn").click(function () {
@@ -154,11 +156,11 @@ jQuery(document).ready(function ($) {
       categories.push($(this).data("categorie"));
     });
   });
-
+// Bouton voir plus 
   $(".voirPlusbtn").on("click", function (e) {
     e.preventDefault();
     var page = parseInt($(".voirPlusbtn").data("page")) + 1;
-
+    //Appel ajax pour charger plus de photos
     $.ajax({
       url: custom_scripts_vars.ajaxurl,
       type: "post",
@@ -168,9 +170,11 @@ jQuery(document).ready(function ($) {
       },
       success: function (response) {
         if (response) {
+          //Ajouter les nouvelles photos a la section existante
           $("#photo-section").append(response);
           $(".voirPlusbtn").data("page", page);
           currentIndex = 0;
+          //Associer un événement de clic a l'icone de plein ecran
           $(".fullscreen-btn").click(function () {
             var imageContainer = $(this).closest(".image-link");
             var imageSrc = imageContainer.find("img").attr("src");
@@ -179,10 +183,12 @@ jQuery(document).ready(function ($) {
             currentIndex = images.indexOf(imageSrc);
             openModal(imageSrc, reference, categorie);
           });
-        } else {
+        } 
+        //Masquer le bouton s'il n'ya plus de photos a charger
+        else {
           $(".voirPlusbtn").hide();
         }
-
+        //Collecter les informations sur les images à charger
         $(".image-link").each(function () {
           images.push($(this).find("img").attr("src"));
           references.push($(this).data("reference"));
@@ -191,7 +197,7 @@ jQuery(document).ready(function ($) {
       },
     });
   });
-
+// Fermeture de la modale 
   $(".close").click(function () {
     closeModal();
   });

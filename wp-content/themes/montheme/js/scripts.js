@@ -4,20 +4,20 @@ jQuery(document).ready(function ($) {
     $(".menu").slideToggle();
   });
 
-  //affichage automatique des reférences photo
+  //Affichage automatique des reférences photo
   // Lorsque le bouton "Contact" est cliqué
   $(".contact-button").click(function () {
     // Récupérer la valeur de la référence de la photo
     var refPhoto = $(".content-container p:contains('REFERENCE')")
-      .text()
-      .trim()
-      .split(":")[1]
-      .trim();
-    // Pré-remplir le champ Réf photo dans le formulaire de contact
+      .text() // récupérer tout le text contenu dans cet element HTML
+      .trim() // supprimer les éspaces vides au debut et a la fin du texte récupéré
+      .split(":")[1] // récupérer la deuxiemme partie qui correspond à la valeur de la référence
+      .trim(); // supprimer les espaces vides avant et apres la valeur de la référence
+    // Pré-remplir le champ Réf dans le formulaire de contact
     $("[name='your-subject']").val(refPhoto);
   });
 
-  //la modale lightbox
+  //La modale lightbox
   var currentIndex = 0;
   var images = [];
   var references = [];

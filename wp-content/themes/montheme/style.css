@@ -125,7 +125,7 @@ header nav {
   margin: 8% auto;
   padding: 5px 20px 13px 20px;
   border-radius: 20px;
-  background-color: rgb(255, 255, 255, 0.7);
+  background-color: rgb(255, 255, 255, 0.8);
 }
 .close1 {
   background: black;
@@ -156,7 +156,7 @@ header nav {
   padding-right: 30px;
   padding-bottom: 10px;
   padding-left: 30px;
-  margin-left: 38%;
+  margin-left: 35%;
 }
 .wpcf7-form-control {
   border: 1px solid #b8bbc2;
@@ -346,10 +346,12 @@ header nav {
     margin-left: 190px !important;
   }
   .next {
-    left: 82% !important;
+    left: 85% !important;
+    font-size: 10px !important;
   }
   .prev {
-    right: 74% !important;
+    right: 85% !important;
+    font-size: 10px !important;
   }
   .container::after {
     width: 100% !important;
@@ -368,9 +370,16 @@ header nav {
   .imgsemilaire img {
     width: 100% !important;
   }
- 
+
   .image-link .square {
-    padding-right: 85px;
+    padding-right: 17%;
+  }
+  .format-btn {
+    width: auto;
+  }
+  .image-link .overlay-infos {
+    margin-left: 120px !important;
+    margin-right: 134px !important;
   }
 }
 /* les articles*/
@@ -683,11 +692,6 @@ img.demo {
   color: white;
 }
 /* page d'affichage des articles */
-
-.body-single {
-  width: 100%;
-  margin: 0;
-}
 .container {
   position: relative;
   margin-bottom: 20px;
@@ -748,7 +752,7 @@ h2 p {
   content: "";
   position: absolute;
   width: 80%;
-  height: 1px;
+  height: 0.5px;
   margin-top: 8%;
   background-color: #000000;
 }
@@ -815,8 +819,8 @@ h2 p {
   padding: 0 10%;
 }
 .articleSimilaire p {
-  font-family: monospace;
-  font-size: 18px;
+  font-family: poppins;
+  font-size: 14px;
   font-weight: 400;
   line-height: 27px;
   letter-spacing: 0.1em;
