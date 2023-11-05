@@ -1,6 +1,6 @@
-<div class="site-container">
-  <?php get_header(); ?>
 
+  <?php get_header(); ?>
+  <section class="site-container">
   <div>
     <div class="photographe">
       <h1 class="titreImage">PHOTOGRAPHE EVENT</h1>
@@ -28,8 +28,6 @@
       ?>
     </div>
   </div>
-
-
 
   <!-- Les filtres -->
   <section class="listes">
@@ -122,4 +120,4 @@
   </div>
 
   <?php get_footer(); ?>
-</div>
+</section>

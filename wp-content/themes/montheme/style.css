@@ -3,7 +3,8 @@ Theme Name: mon theme
 */
 /* header*/
 body {
-  width: auto;
+  
+  margin:0 !important;
 }
 .site-container {
   overflow: hidden;
@@ -268,7 +269,7 @@ header nav {
     height: 10px;
   }
   .titreImage {
-    font-size: 50px;
+    font-size: 40px;
   }
   .photos {
     display: flex !important;

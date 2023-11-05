@@ -58,12 +58,13 @@ $id = get_the_ID();
 
     </div>
   </div>
-  </section>
   <section>
     <div class="sup">
       <div class="btncnt">
-        <p>Cette photo vous interesse ?</p>
-        <a href="#openModal" class="contact-button">Contact</a>
+        <p>Cette photo vous interesse ?
+        </p>
+        <a href="#openModal" class="contact-button">Contact
+        </a>
       </div>
 
       <!--La liste des miniatures  -->
@@ -105,7 +106,8 @@ $id = get_the_ID();
   <section class="similaires">
     <!--Les articles similaires (photos apparentées )-->
     <div class="articleSimilaire">
-      <p>VOUS AIMEZ AUSSI ?</p>
+      <p>VOUS AIMEZ AUSSI ?
+      </p>
       <div class="imgsemilaire">
         <?php
         // Récupérer les articles similaires
@@ -162,4 +164,6 @@ $id = get_the_ID();
 </div>
 </section>
 </div>
-<?php get_footer(); ?>
+<?php
+get_footer();
+?>
