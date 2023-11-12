@@ -125,3 +125,23 @@ for (var i = 0; i < images.length; i++) {
   });
 }
 });
+
+jQuery(document).ready(function($) {
+  // Récupérer la hauteur de la fenêtre
+  var windowHeight = $(window).height();
+
+  // Ajouter un événement de défilement à la fenêtre
+  $(window).scroll(function() {
+    // Récupérer la position de défilement
+    var scrollPosition = $(window).scrollTop();
+
+    // Vérifier si la position de défilement dépasse la hauteur de la fenêtre
+    if (scrollPosition > windowHeight) {
+      // Modifier la position du formulaire
+      $('.formulaire').css('margin-top', '0');
+    } else {
+      // Réinitialiser la position du formulaire
+      $('.formulaire').css('margin-top', '200px');
+    }
+  });
+});

@@ -151,6 +151,7 @@ header{
   opacity: 0;
   transition: opacity 400ms ease-in;
   pointer-events: none;
+  overflow-y: scroll;
 }
 .titre-contact {
   height: 106.05px;
