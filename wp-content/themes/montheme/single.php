@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -8,14 +9,15 @@
  * @package WordPress
  * @subpackage mon theme
  */
-
-get_header();
-$id = get_the_ID();
 ?>
 
-<div class="single">
-
+<div class="global-single"> 
   <?php
+  get_header();
+  $id = get_the_ID();
+  ?>
+  <div class="single">
+    <?php 
   // Récupérer les valeurs des champs personnalisés
   $titres = get_post_meta($id, 'titre', true);
   $references = get_post_meta($id, 'reference', true);
@@ -32,6 +34,7 @@ $id = get_the_ID();
 
 
   ?>
+
   <div class="container">
     <div class="content-container">
       <?php
@@ -58,52 +61,56 @@ $id = get_the_ID();
 
     </div>
   </div>
-  <section>
-    <div class="sup">
-      <div class="btncnt">
-        <p>Cette photo vous interesse ?
-        </p>
-        <a href="#openModal" class="contact-button">Contact
-        </a>
+ 
+  <section class="bloc2">
+  <div class="sup">
+    <div class="btncnt">
+      <p>Cette photo vous intéresse ?</p>
+      <div class="btncntt">
+      <a href="#openModal" class="contact-button">Contact</a>
       </div>
-
-      <!--La liste des miniatures  -->
-      <div class="row">
-        <div class="column hover-shadow image-container1">
-          <?php
-          // Récuperer l'atrticle suivant a l'article actuel 
+    </div>
+    <!-- La liste des miniatures -->
+    <div class="row">
+      <div class="column hover-shadow image-container1">
+        <?php
+          // Récupérer l'article suivant de l'article actuel
           $next_post = get_next_post();
+          
           if ($next_post) {
             $next_post_id = $next_post->ID;
-            // Récuperer les images attachées à l'article suivant 
+            // Récupérer les images attachées à l'article suivant
             $next_post_images = get_attached_media('image', $next_post_id);
+            
             foreach ($next_post_images as $index => $image) {
-              //Afficher l'image 
-              echo '<img src="' . wp_get_attachment_image_src($image->ID)[0]  . '" />';
+              // Afficher l'image avec une classe pour le survol
+              echo '<img src="' . wp_get_attachment_image_src($image->ID)[0]  . '" class="zoom-image"/>';
             }
           } else {
             // Le dernier article, afficher l'image précédente
             $previous_post = get_previous_post();
             $previous_post_images = get_attached_media('image', $previous_post->ID);
+            
             foreach ($previous_post_images as $index => $image) {
-              echo '<img src="' . wp_get_attachment_image_src($image->ID)[0]  . '" />';
+              // Afficher l'image avec une classe pour le survol
+              echo '<img src="' . wp_get_attachment_image_src($image->ID)[0]  . '" class="zoom-image"/>';
             }
           }
-          ?>
-
-          <div class="arrows">
-            <?php
-            // Les fléches de navigation vers la photo suivant ou précédent 
+        ?>
+        
+        <div class="arrows">
+          <?php
+            // Les flèches de navigation vers la photo suivante ou précédente
             previous_post_link('%link', '<i class="fa-solid fa-arrow-left arrow"></i>');
             next_post_link('%link', '<i class="fa-solid fa-arrow-right arrow"></i>');
-            ?>
-          </div>
+          ?>
         </div>
       </div>
     </div>
-
-  </section>
+  </div>
+</section>
   <section class="similaires">
+   
     <!--Les articles similaires (photos apparentées )-->
     <div class="articleSimilaire">
       <p>VOUS AIMEZ AUSSI ?
@@ -157,13 +164,14 @@ $id = get_the_ID();
 
       </div>
 
-      <div class="btn-toutes-les-photos">
-        <a href="#">toutes les photos</a>
-      </div>
+     
     </div>
 </div>
 </section>
+<div class="btn-toutes-les-photos">
+        <a href="#">toutes les photos</a>
+      </div>
+<section>
+<?php get_footer();?>
+</section>
 </div>
-<?php
-get_footer();
-?>

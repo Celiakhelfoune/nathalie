@@ -1,7 +1,7 @@
 
-  <?php get_header(); ?>
+<?php get_header(); ?>
   <section class="site-container">
-  <div>
+  <div class="mon-hero">
     <div class="photographe">
       <h1 class="titreImage">PHOTOGRAPHE EVENT</h1>
       <?php
@@ -30,8 +30,9 @@
   </div>
 
   <!-- Les filtres -->
+  <div class="mes-filtres">
   <section class="listes">
-
+<div class="format-class">
     <select name="categorie" class="format-btn">
       <option value="" class="default-option">CATÉGORIES</option>
       <?php
@@ -44,7 +45,8 @@
       }
       ?>
     </select>
-    <div class="arrow1"></div>
+    </div>
+    <div class="arrow1">
     <select name="format" class="format-btn">
       <option value="" class="default-option">FORMATS</option>
       <?php
@@ -58,6 +60,7 @@
       ?>
 
     </select>
+    </div>
     <div class="custom-select">
       <select id="mySelect" name="tri" class="format-btn">
         <?php
@@ -76,7 +79,8 @@
       </select>
     </div>
   </section>
-
+  </div>
+<div class="mes-photos">
   <section class="photos" id="photo-section">
     <?php
     //Tableau des paramètres  de la requette de la base de donnée
@@ -115,9 +119,10 @@
     wp_reset_postdata();
     ?>
   </section>
+  </div>
   <div class="load-more-button">
-    <a href="#" class="voirPlusbtn" data-page="1">Voir plus</a>
+    <a href="#" class="voirPlusbtn" data-page="1">Charger plus</a>
   </div>
 
   <?php get_footer(); ?>
-</section>
+  </div>

@@ -21,12 +21,16 @@
 
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
+  <div class="mon-header">
   <header>
+    
+  <a href="<?php echo esc_url(get_permalink(get_option('page_on_front'))); ?>"><img src="<?php echo get_stylesheet_directory_uri() . '/images/Logo1.png' ?>" alt="logo" class="logo1"></a>
     <nav class="monmenu">
-      <img src="<?php echo get_stylesheet_directory_uri() . '/images/Logo1.png' ?>" alt="logo" class="logo1">
       <div class="burger-menu">
         <i class="fa fa-bars"></i>
+        <i class="fa fa-xmark hide"></i>
       </div>
       <?php wp_nav_menu(['theme_location' => 'header']) ?>
     </nav>
   </header>
+  </div>

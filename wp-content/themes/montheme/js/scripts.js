@@ -1,6 +1,8 @@
 //menu burger
 jQuery(document).ready(function ($) {
   $(".burger-menu").click(function () {
+    $(this).find(".fa-bars").toggleClass("hide");
+    $(this).find(".fa-xmark").toggleClass("active");
     $(".menu").slideToggle();
   });
 
@@ -103,4 +105,23 @@ jQuery(document).ready(function ($) {
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
   }
+});
+
+
+// zoom des miniatures 
+jQuery(document).ready(function ($) {
+// Ajouter un événement "mouseover" à chaque image avec la classe "zoom-image"
+var images = document.getElementsByClassName("zoom-image");
+  
+for (var i = 0; i < images.length; i++) {
+  images[i].addEventListener("mouseover", function() {
+    // Modifier le style de l'image pour l'agrandir
+    this.style.transform = "scale(1.2)";
+  });
+  
+  images[i].addEventListener("mouseout", function() {
+    // Réinitialiser le style de l'image
+    this.style.transform = "scale(1)";
+  });
+}
 });

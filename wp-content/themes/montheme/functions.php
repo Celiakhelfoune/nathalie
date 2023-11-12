@@ -30,8 +30,8 @@ add_action('init', 'enregistre_mon_menu_mobile');
 function montheme_support()
 {
   add_theme_support('menus');
-  add_image_size('forme', 560, 500);
-  add_image_size('forme1', 560, 850);
+  add_image_size('forme', 564, 495);
+  add_image_size('forme1', 563, 844);
   register_nav_menu('header', 'En tete du menu');
 }
 add_action('after_setup_theme', 'montheme_support');
